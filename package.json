@@ -1,5 +1,5 @@
 {
-  "name": "@zevcommerce/storefront",
+  "name": "@zevop/commerce-storefront",
   "version": "1.0.0",
   "description": "The official JavaScript SDK for ZevCommerce headless development",
   "main": "dist/index.js",
@@ -11,6 +11,9 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
     }
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "build": "tsup",
