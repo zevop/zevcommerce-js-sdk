@@ -7,6 +7,7 @@ import { SearchClient } from './modules/search';
 import { CheckoutClient } from './modules/checkout';
 import { AuthClient } from './modules/auth';
 import { CustomerClient } from './modules/customer';
+import { AnalyticsClient } from './modules/analytics';
 
 export interface ZevClientOptions {
     /**
@@ -48,6 +49,7 @@ export class ZevClient {
     public checkout: CheckoutClient;
     public auth: AuthClient;
     public customer: CustomerClient;
+    public analytics: AnalyticsClient;
 
     constructor(options: ZevClientOptions) {
         if (!options.endpoint) {
@@ -67,6 +69,7 @@ export class ZevClient {
         this.checkout = new CheckoutClient(this);
         this.auth = new AuthClient(this);
         this.customer = new CustomerClient(this);
+        this.analytics = new AnalyticsClient(this);
     }
 
     /**
@@ -74,6 +77,20 @@ export class ZevClient {
      */
     public updateOptions(options: Partial<ZevClientOptions>) {
         this.options = { ...this.options, ...options };
+    }
+
+    /**
+     * Returns the configured GraphQL endpoint URL.
+     */
+    public getEndpoint(): string {
+        return this.options.endpoint;
+    }
+
+    /**
+     * Returns the configured public key, if any.
+     */
+    public getPublicKey(): string | undefined {
+        return this.options.publicKey;
     }
 
     /**

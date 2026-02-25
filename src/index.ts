@@ -9,3 +9,4 @@ export * from './modules/search';
 export * from './modules/checkout';
 export * from './modules/auth';
 export * from './modules/customer';
+export * from './modules/analytics';
